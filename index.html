@@ -36,10 +36,17 @@
     <div class="counter" id="counter">Loading...</div>
 
     <script>
-        fetch('https://api.countapi.xyz/hit/gorilla-prank-page/visits')
+        // Unique namespace so your counter starts fresh
+        const namespace = "gorilla_prank_3f92a1c2b8";
+        
+        fetch(`https://api.countapi.xyz/update/${namespace}/visits/?amount=1`)
             .then(response => response.json())
             .then(data => {
                 document.getElementById('counter').innerText = data.value;
+            })
+            .catch(error => {
+                document.getElementById('counter').innerText = "Error loading counter";
+                console.error(error);
             });
     </script>
 </body>
