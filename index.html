@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Page</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            margin-top: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+        .counter {
+            margin-top: 20px;
+            font-size: 1.5em;
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number of people who fell for this 😂</h1>
+    <img src="https://i.ibb.co/ZpdtrQPt/images-4.jpg" alt="Prank Gorilla">
+    <div class="counter" id="counter">Loading...</div>
+
+    <script>
+        fetch('https://api.countapi.xyz/hit/gorilla-prank-page/visits')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('counter').innerText = data.value;
+            });
+    </script>
+</body>
+</html>
